@@ -1,0 +1,8 @@
+en en
+de de
+ar ar
+ru ru
+en de
+en ar
+de ru
+ar ru

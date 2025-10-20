@@ -1,0 +1,63 @@
+##for TP candidate generation
+
+Please generate 20 samples in jsonl format for pairwise semantic relevance reranking task. Each sample must follow the content requirements and format requirements below.
+
+**Content requirements:**
+(1) The query should be a "wh"-question and keywords in the questions must have synonyms.
+(2) **Passage A** must always be semantically relevant to the query. Passage B must always be semantically irrelevant to the query.
+(3) **Passage A** and the query must share at least one overlapping non-stopword keyword. Passage B must not contain any overlapping token with the query.
+(4) **Passage A** and Passage B should be about similar or related topics, so that the pair forms a hard example (difficult to judge at first glance, but with a unique correct answer).
+
+**Format requirements:**
+(1)Output must be in jsonl format.
+(2)Each entry must include: qid, query, passage_A, passage_B, and output.
+(3)Each qid and pid must be unique and assigned in order.
+(4)Always set "output": "Passage A".
+
+Now, please directly generate 20 new jsonl samples that strictly follow the above rules. Please follow the format here and start from qid 000021 and pid000041. {"qid": "000020", "query": "...", "passage_A": {"pid": "0000039", "passage": "..."}, "passage_B": {"pid": "0000040", "passage": "..."}, "output": "Passage A"}
+
+
+
+##for FP candidate generation
+Please generate 20 samples in jsonl format for pairwise semantic relevance reranking task. Each sample must follow the content requirements and format requirements below.
+
+**Content requirements:**
+(1) The query should be a "wh"-question and keywords in the questions must have synonyms.
+(2) **Passage A** must always be semantically relevant to the query. **Passage B** must always be semantically irrelevant to the query.
+(3) **Passage B** and the query must share at least one overlapping non-stopword token. **Passage A** must not contain any overlapping token with the query.
+(4) Passage A and Passage B should be about similar or related topics, so that the pair forms a hard example (difficult to judge at first glance, but with a unique correct answer).
+
+**Format requirements:**
+(1)Output must be in JSONL format.
+(2)Each entry must include: qid, query, passage_A, passage_B, and output.
+(3)Each qid and pid must be unique and assigned in order.
+(4)Always set "output": "Passage A".
+
+Now, please directly generate 20 new jsonl samples that strictly follow the above rules. Please follow the format here and start from qid 100001 and pid 100001. {"qid": "000001", "query": "...", "passage_A": {"pid": "0000001", "passage": "..."}, "passage_B": {"pid": "0000040", "passage": "..."}, "output": "Passage A"}
+
+
+### for TP perturbation:
+Please perturb each of the following triples (original examples) used for pairwise semantic relevance reranking. These examples all satisfy the following conditions:
+(1) "gold_output" Passage is always semantically relevant to the query. the other passage is always semantically irrelevant to the query.
+(2) the **relevant passage** and the query share at least one overlapping non-stopword token. 
+
+**Perturbation requirements:**
+(1) Replace ALL OVERLAPPING TOKENS in the **Relevant Passage** that also appears in the query (i.e., all overlapping tokens) with suitable synonyms, while keeping the overall sentence semantics unchanged.
+(2) Do not modify any other part of relevant passage except the overlapping tokens, and make sure all overlapping tokens are replaced. Do not modify irrelevant passage.
+(3) The output must be in JSONL format, consistent with the structure of the original examples.
+
+Following the above instructions, please perturb those original examples provided below and return the results in JSONL format.
+
+
+
+### for FP perturbation:
+Please perturb each of the following triples (original examples) used for pairwise semantic relevance reranking. These examples all satisfy the following conditions:
+(1) "gold_output" Passage is always semantically relevant to the query. the other passage is always semantically irrelevant to the query.
+(2) the **irrelevant passage** and the query share at least one overlapping non-stopword token. 
+
+**Perturbation requirements:**
+(1) Replace all overlapping tokens in **irrelevant passage** that also appears in the query (i.e., all overlapping tokens) with suitable synonyms, while keeping the overall sentence semantics unchanged.
+(2) Do not modify any other part of irrelevant passage except the overlapping tokens, and make sure all overlapping tokens are replaced. Do not modify relevant passage.
+(3) The output must be in JSONL format, consistent with the structure of the original examples.
+
+Following the above instructions, please perturb the 20 original examples provided below and return the results in JSONL format.
