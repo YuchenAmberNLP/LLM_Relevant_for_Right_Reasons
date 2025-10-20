@@ -151,7 +151,7 @@ def code_switch(input_file: str, qlang: str, dlang: str, prob: float) -> None:
         ) if dlang != "en" else None
 
     # Track code-switching statistics
-    # query_cs_count, query_nocs_count = 0, 0
+    query_cs_count, query_nocs_count = 0, 0
     doc_cs_count, doc_nocs_count = 0, 0
 
     logger.info("Writing results to %s" % output_file)
@@ -162,18 +162,18 @@ def code_switch(input_file: str, qlang: str, dlang: str, prob: float) -> None:
     with open(output_file, "w") as f:
         for record in tqdm.tqdm(records):
             # Tokenize
-            # record["qtokens"] = tokenizer.tokenize(record["query"])
+            record["qtokens"] = tokenizer.tokenize(record["query"])
             record["dtokens"] = tokenizer.tokenize(record["passage"])
 
-            # # Query-side Code-Switching
-            # if qlang != "en":
-            #     if qlang == TOKEN_ANY:
-            #         cs_tokens, cs_count, nocs_count = code_switch_multilingually(prob, lang2query_ttables, record["qtokens"])
-            #     else:
-            #         cs_tokens, cs_count, nocs_count = code_switch_bilingually(prob, query_translation_table, record["qtokens"])
-            #     query_cs_count += cs_count
-            #     query_nocs_count += nocs_count
-            #     record["query"] = detokenizer.detokenize(cs_tokens)
+            # Query-side Code-Switching
+            if qlang != "en":
+                if qlang == TOKEN_ANY:
+                    cs_tokens, cs_count, nocs_count = code_switch_multilingually(prob, lang2query_ttables, record["qtokens"])
+                else:
+                    cs_tokens, cs_count, nocs_count = code_switch_bilingually(prob, query_translation_table, record["qtokens"])
+                query_cs_count += cs_count
+                query_nocs_count += nocs_count
+                record["query"] = detokenizer.detokenize(cs_tokens)
 
             # Document-side Code-Switching
             if dlang != "en":
