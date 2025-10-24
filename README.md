@@ -167,7 +167,8 @@ This repository is released under the MIT License.
 
 ## Note:
 
-This project's training script is based on and modified from **[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)**.
+This project's training script is based on and modified from **[Stanford Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)**, See https://github.com/tatsu-lab/stanford_alpaca for details.
+
 
 The following public datasets were used in this project:
 
