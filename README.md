@@ -15,7 +15,7 @@ This repository contains the code, data and evaluation scripts to reporduce the 
 ## Installation
 ### (1) Download, unzip and enter the project folder
 ```bash
-cd Lexical_Bias_LLM
+cd LLM_Right_for_Right_Reasons
 ```
 ### (2) Install dependencies
 ```bash
@@ -167,14 +167,14 @@ This repository is released under the MIT License.
 
 ## Note:
 
-This project's training script is based on and modified from **Stanford Alpaca**. See https://github.com/tatsu-lab/stanford_alpaca for details.
+This project's training script is based on and modified from **[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)**.
 
 The following public datasets were used in this project:
 
 - **SQuAD** (Stanford Question Answering Dataset)
 - **XQuAD-R** (a retrieval version of the XQuAD dataset (a cross-lingual extractive QA dataset).)
 - **Multilingual MS MARCO** (Microsoft Machine Reading Comprehension)
-- **CSCLIR** (Code-switched Cross-Lingual IR) from [Dr. Robert Litschko on HuggingFace](https://huggingface.co/datasets/rlitschk/csclir/tree/main)
+- **CSCLIR** (Code-switched Cross-Lingual IR) from ([Litschko et al., 2023](https://aclanthology.org/2023.findings-acl.193/))
 
 Dataset usage complies with the respective licenses or terms provided by their authors and publishers.
 

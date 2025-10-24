@@ -3,7 +3,7 @@
 This script is modified from:
 https://github.com/mainlp/CodeSwitchCLIR/blob/729dff884eb4cee93c1f362648e01844e56de851/src/train_data/codeswitch_clwe.py
 
-Original project: CodeSwitchCLIR (Mainlp Group, Dr. Robert Litschko)
+Original project: Litschko et al., 2023 (https://aclanthology.org/2023.findings-acl.193/)
 Original file: codeswitch_clwe.py
 
 Modifications made by Yuchen Mao as part of paper "Relevant for the Right Reasons? Investigating Lexical Biases in Re-ranking with Large Language Models".
