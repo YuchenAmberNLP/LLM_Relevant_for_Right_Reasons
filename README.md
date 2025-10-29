@@ -39,7 +39,7 @@ bash scripts/data_prep_squad_tune.sh
 This project is designed to support training and evaluating re-ranking models across **multiple languages**, including both monolingual and cross-lingual settings.
 
 ### Using the Released Models
-For convenience, we release a series of instruction-tuned models on [HuggingFace](https://huggingface.co/ycmaonlp). These models can be directly loaded and used without re-training with python code:
+For convenience, we release a series of instruction-tuned models on [HuggingFace](https://huggingface.co/collections/ycmaonlp/models-for-the-llm-relevant-for-the-right-reasons-paper). These models can be directly loaded and used without re-training with python code:
 
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
