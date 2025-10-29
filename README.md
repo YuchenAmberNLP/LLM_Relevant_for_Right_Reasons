@@ -38,6 +38,23 @@ bash scripts/data_prep_squad_tune.sh
 
 This project is designed to support training and evaluating re-ranking models across **multiple languages**, including both monolingual and cross-lingual settings.
 
+### Using the Released Models
+For convenience, we release a series of instruction-tuned models on [HuggingFace](https://huggingface.co/ycmaonlp). These models can be directly loaded and used without re-training with python code:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+model_name = "ycmaonlp/Llama3.1-8B-Instruct-{DATASET}-{TUNING LANGUAGE}"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+```
+where:
+- DATASET ∈ {mMARCO, SQuAD}
+- TUNING LANGUAGE ∈ {code-switched settings such as CodeSwitched-ENXX, or language-pair specific fine-tuning such as DEDE, ENEN, etc.}
+
+These models are compatible with standard HuggingFace APIs and can be directly integrated into downstream reranking pipelines.
+
+
 ### Instruction Tuning
 We provide multiple groups of instruction-tuning data, which have already been generated during the Data Preparationstage and stored in:
 
